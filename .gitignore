@@ -2,4 +2,6 @@ venv/**
 *.xml
 *.iml
 **/practice.py
+*/target
+*/test.py
 
