@@ -1,0 +1,39 @@
+import sys
+sys.stdin = open("input.txt","r")
+input = sys.stdin.readline
+
+n = int(input())
+
+tree = {}
+for i in range(n):
+    r, a, b = map(str, input().split())
+
+    tree[r] = (a,b)
+
+print(tree["A"][0])
+
+def pre(key):
+    if key != '.':
+        print(key, end='')
+        pre(tree[key][0])
+        pre(tree[key][1])
+
+pre('A')
+print()
+
+def in_order(key):
+    if key != '.':
+        pre(tree[key][0])
+        print(key, end='')
+        pre(tree[key][1])
+
+in_order('A')
+print()
+
+def post(key):
+    if key != '.':
+        pre(tree[key][0])
+        pre(tree[key][1])
+        print(key, end='')
+
+post('A')
