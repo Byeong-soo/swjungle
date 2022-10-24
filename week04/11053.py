@@ -2,23 +2,23 @@ import sys
 
 
 def get_index(number):
-    global mid
     start = 0
     end = len(answer_list) - 1
 
     while start <= end:
         mid = (start + end) // 2
-        if number >= answer_list[mid]:
-            start = mi다d + 1
+        if number > answer_list[mid]:
+            start = mid + 1
         elif number < answer_list[mid]:
             end = mid - 1
-    return start
+        elif number == answer_list[mid]:
+            return mid
+    return end+1
 
 
 if __name__ == '__main__':
     sequence_count = int(sys.stdin.readline().rstrip())
     sequence_list = list(map(int, sys.stdin.readline().rstrip().split(" ")))
-    mid = 0
     answer_list = [sequence_list[0]]
 
     for sequence in range(1, sequence_count):
@@ -29,17 +29,19 @@ if __name__ == '__main__':
             answer_list[index] = sequence_list[sequence]
     print(len(answer_list))
 
+# dp 풀이
 
-    N = int(sys.stdin.readline())
-    A = list(map(int, input().split()))
-    dp = [1] * N
+    # N = int(sys.stdin.readline())
+    # A = list(map(int, input().split()))
+    # dp = [1] * N
+    #
+    # for i in range(1, N) :
+    #     for j in range(i) :
+    #         if A[i] > A[j] :
+    #             dp[i] = max(dp[i], dp[j]+1)
+    #
+    # print(max(dp))
 
-    for i in range(1, N) :
-        for j in range(i) :
-            if A[i] > A[j] :
-                dp[i] = max(dp[i], dp[j]+1)
-
-    print(max(dp))
     # LCS로는 안됌
     # sequence_matrix = [[0 for x in range(sequence_count + 1)] for y in range(sequence_count + 1)]
     # for y in range(1, len(sequence_list)):
