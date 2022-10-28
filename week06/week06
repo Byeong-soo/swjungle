@@ -1,0 +1,16 @@
+week_06
+
+Malloc Lab
+
+malloc - CS:APP 9장
+
+keyword - 시스템 콜, 데이터 세크먼트, 메모리 단편화 ,sbrk/mmap
+
+구현
+- malloc, realloc, free 함수 구현
+
+방법
+- implicit, explicit, seglist 등 여러 방법이 있음 
+- implicit 먼저 구현 할 것.
+- 여유되면 explicit, seglist, buddy system 도전
+
